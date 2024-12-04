@@ -1,14 +1,10 @@
 import React from 'react'
-import Link from 'next/navigation'
 import Image from 'next/image'
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button'
 
@@ -41,8 +37,8 @@ export default function Navbar() {
         </NavigationMenu>
         </div>
         <div className='flex justify-center items-center gap-2'>
-         <Button className='bg-[#128C76] rounded-none w-24 h-11 hover:bg-[#128C76] hover:opacity-[0.8]'>Login</Button>
-         <Button className="border border-pink-600 text-pink-600 bg-white rounded-none w-24 h-11 hover:bg-pink-500 hover:text-white">
+         <Button className='bg-emeraldGreen rounded-none w-24 h-11 hover:bg-emeraldGreen hover:opacity-[0.8]'>Login</Button>
+         <Button className="border border-rosePink text-pink-600 bg-white rounded-none w-24 h-11 hover:bg-rosePink hover:text-white">
           Register
         </Button>
 
