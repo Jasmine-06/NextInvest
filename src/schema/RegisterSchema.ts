@@ -1,4 +1,4 @@
-import z from 'Zod';
+import  z  from "Zod";
 
 
 const RegisterSchema = z.object({

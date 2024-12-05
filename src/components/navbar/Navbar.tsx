@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export default function Navbar() {
   return (
@@ -37,10 +38,16 @@ export default function Navbar() {
         </NavigationMenu>
         </div>
         <div className='flex justify-center items-center gap-2'>
-         <Button className='bg-emeraldGreen rounded-none w-24 h-11 hover:bg-emeraldGreen hover:opacity-[0.8]'>Login</Button>
+          <Link href="/login">
+         <Button className='bg-emeraldGreen rounded-none w-24 h-11 hover:bg-emeraldGreen hover:opacity-[0.8]'>
+          Login
+          </Button>
+          </Link>
+         <Link href="/register">
          <Button className="border border-rosePink text-pink-600 bg-white rounded-none w-24 h-11 hover:bg-rosePink hover:text-white">
           Register
         </Button>
+         </Link>
 
         </div>
       </div>
