@@ -1,26 +1,24 @@
-import { NextResponse } from 'next/server'
-import {auth} from './auth'
+import { NextResponse } from 'next/server';
+import { auth } from './auth';
 
-
- 
-export default  auth((request ) => {
-
+export default auth((request) => {
   const { nextUrl } = request;
+  const isLoggedIn = !!request.auth; 
+  const pathname = nextUrl.pathname;
 
-  const isLoggedIn = !!request.auth
-  const publicPaths = ['/sign-in', '/register' , '/']
-
-  if (isLoggedIn && publicPaths.includes(nextUrl.pathname)) {
-    return NextResponse.redirect(new URL('/', nextUrl))
+  if (isLoggedIn) {
+    if (pathname === '/login' || pathname === '/register') {
+      return NextResponse.redirect(new URL('/', nextUrl));
+    }
+  } else {
+    if (pathname !== '/login' && pathname !== '/register' && pathname !== '/') {
+      return NextResponse.redirect(new URL('/login', nextUrl));
+    }
   }
 
-
-  return NextResponse.next()
-})
+  return NextResponse.next();
+});
 
 export const config = {
-  matcher: [
-    '/sign-in',
-    '/sign-up',
-],
-}
+  matcher: ['/login', '/register', '/'], 
+};

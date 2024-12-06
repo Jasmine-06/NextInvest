@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcryptjs from "bcryptjs";
-import prisma from "./lib/dbConnetion";
+import prisma from '@/lib/dbConnetion';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -86,4 +86,3 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: '/login',
   },
 });
-

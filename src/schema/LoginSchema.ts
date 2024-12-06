@@ -1,4 +1,4 @@
-import z from 'Zod';
+import z from 'zod';
 
 const SigninSchema = z.object({
     email : z.string().email('Invalid email address'),

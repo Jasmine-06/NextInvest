@@ -1,16 +1,16 @@
-import asyncHandler from "../../_utlis/asyncHandler";
-import { SignupSchemaBackend } from "@/schema/SignupSchemaBackend";
-import { formatValidationErrors } from "../../_utlis/FormatValidationError";
-import { ApiError } from "../../_utlis/ApiError";
-import prisma from "@/lib/dbConnetion";
+import asyncHandler from "../../_utils/asyncHandler";
+import { RegisterSchemaBackend } from "@/schema/RegisterSchemaBackend";
+import { formatValidationErrors } from "../../_utils/FormatValidationError";
+import { ApiError } from "../../_utils/ApiError";
+import prisma from '@/lib/dbConnetion'
 import bcrypt from 'bcryptjs';
-import { ApiResponse } from "../../_utlis/ApiResponse";
+import { ApiResponse } from "../../_utils/ApiResponse";
 import { NextResponse } from "next/server";
 import { Roles } from "@prisma/client";
 
 export const POST = asyncHandler(async (req) => {
-   
-    const result = await SignupSchemaBackend.safeParseAsync(req.body);
+       const body = await req.json();
+    const result =  RegisterSchemaBackend.safeParse(body);
 
     if (!result.success) { 
     const error = formatValidationErrors(result.error);
